@@ -1,6 +1,13 @@
 import '../styles/global.scss'
+import Tabs from '../components/tabs';
 
-// This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <main className="main">
+      <Tabs />
+      <div className="wrapper">
+        <Component {...pageProps} />
+      </div>
+    </main>
+  );
 }
