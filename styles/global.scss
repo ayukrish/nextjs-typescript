@@ -1,3 +1,25 @@
+@import './variable.scss';
+
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+.main {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.section {
+  background: $grey;
+}
+
 .flex {
   display: flex;
 }

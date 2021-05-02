@@ -5,9 +5,9 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <main className="main">
       <Tabs />
-      <div className="wrapper">
+      <section className="wrapper flex wrap section">
         <Component {...pageProps} />
-      </div>
+      </section>
     </main>
   );
 }
