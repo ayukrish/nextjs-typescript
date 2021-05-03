@@ -5,8 +5,8 @@ import Card from '../components/card';
 const Characters = ({ characters }) => {
   return (
     <Fragment>
-      {characters?.results?.length > 0 &&
-        characters.results.map((item) => (
+      {characters?.length > 0 &&
+        characters.map((item) => (
           <Card
             key={item.id}
             dataObj={{
@@ -27,7 +27,7 @@ const Characters = ({ characters }) => {
 
 
 export const getStaticProps = async ()  => {
-  const characters = await service({
+  const data = await service({
     url: 'https://rickandmortyapi.com/api/character',
     method: 'get',
     page: 1,
@@ -35,7 +35,7 @@ export const getStaticProps = async ()  => {
 
   return {
     props: {
-      characters,
+      characters: data?.results || [],
     },
   }
 }

@@ -5,8 +5,8 @@ import Card from '../components/card';
 const Episodes = ({ episodes }) => {
   return (
     <Fragment>
-      {episodes?.results.length > 0 &&
-        episodes.results.map((item) => (
+      {episodes?.length > 0 &&
+        episodes.map((item) => (
           <Card
             key={item.id}
             dataObj={{
@@ -22,7 +22,7 @@ const Episodes = ({ episodes }) => {
 
 
 export const getStaticProps = async ()  => {
-  const episodes = await service({
+  const data = await service({
     url: 'https://rickandmortyapi.com/api/episode',
     method: 'get',
     page: 1,
@@ -30,7 +30,7 @@ export const getStaticProps = async ()  => {
 
   return {
     props: {
-      episodes,
+      episodes: data?.results || [],
     },
   }
 }

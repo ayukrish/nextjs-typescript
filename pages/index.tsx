@@ -10,7 +10,7 @@ const HomePage = ({ characters }) => {
 
 
 export const getStaticProps = async ()  => {
-  const characters = await service({
+  const data = await service({
     url: 'https://rickandmortyapi.com/api/character',
     method: 'get',
     page: 1,
@@ -18,7 +18,7 @@ export const getStaticProps = async ()  => {
 
   return {
     props: {
-      characters,
+      characters: data?.results || [],
     },
   }
 }
