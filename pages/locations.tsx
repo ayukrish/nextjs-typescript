@@ -5,8 +5,8 @@ import Card from '../components/card';
 const Locations = ({ locations }) => {
   return (
     <Fragment>
-      {locations?.results?.length > 0 &&
-        locations.results.map((item) => (
+      {locations?.length > 0 &&
+        locations.map((item) => (
           <Card
             key={item.id}
             dataObj={{
@@ -21,7 +21,7 @@ const Locations = ({ locations }) => {
 }
 
 export const getStaticProps = async ()  => {
-  const locations = await service({
+  const data = await service({
     url: 'https://rickandmortyapi.com/api/location',
     method: 'get',
     page: 1,
@@ -29,7 +29,7 @@ export const getStaticProps = async ()  => {
 
   return {
     props: {
-      locations,
+      locations: data?.results || [],
     },
   }
 }

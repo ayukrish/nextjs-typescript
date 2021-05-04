@@ -1,6 +1,32 @@
 import style from '../../styles/card.module.scss';
 
-const Card = ({ imgSrc, heading, dataObj }) => {
+
+interface ICardProps {
+  imgSrc?: string;
+  heading: string;
+  dataObj: ICharDataObj | ILocationDataObj | IEpisodeDataObj;
+}
+
+interface ICharDataObj {
+  STATUS?: string;
+  SPECIES?: string;
+  GENDER?: string;
+  ORIGIN?: string;
+  LOCATION?: string;
+}
+
+interface ILocationDataObj {
+  TYPE?: string;
+  DIMENSION?: string;
+}
+
+interface IEpisodeDataObj {
+  EPISODE?: string;
+  'AIR DATE'?: string;
+}
+
+
+const Card = ({ imgSrc, heading, dataObj }:ICardProps) => {
   return (
     <article className={`${style.card} flex column`}>
       <div className={style.cardHeader}>
