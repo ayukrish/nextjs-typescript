@@ -1,12 +1,25 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { service }  from '../service';
 import Card from '../components/card';
+import Pagination from '../components/pagination';
 
 const Episodes = ({ episodes }) => {
+  const [data, setData] = useState(episodes);
+  const [currentPage, setCurrentPage] = useState(1);
+  const getData = async (pageNo = 1) => {
+    const data = await service({
+      url: 'https://rickandmortyapi.com/api/episode',
+      method: 'get',
+      page: pageNo,
+    });
+    setData(data?.results || []);
+  };
+
+
   return (
     <Fragment>
-      {episodes?.length > 0 &&
-        episodes.map((item) => (
+      {data?.length > 0 &&
+        data.map((item) => (
           <Card
             key={item.id}
             dataObj={{
@@ -16,6 +29,15 @@ const Episodes = ({ episodes }) => {
             heading={item && item.name}
           />
         ))}
+        <Pagination
+          contentLength={data?.length || 0}
+          currentPage={currentPage}
+          limit={20}
+          onChange={(pageNo) => {
+            getData(pageNo);
+            setCurrentPage(pageNo);
+          }}
+        />
     </Fragment>
   );
 }
