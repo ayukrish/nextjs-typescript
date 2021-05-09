@@ -4,10 +4,12 @@ import Card from '../components/card';
 import Pagination from '../components/pagination';
 
 interface IEpisodesProps {
-  episodes: any
+  episodes: any;
 }
 
-const Episodes:React.FunctionComponent<IEpisodesProps> = ({ episodes }: IEpisodesProps) => {
+const Episodes: React.FunctionComponent<IEpisodesProps> = ({
+  episodes,
+}: IEpisodesProps) => {
   const [data, setData] = useState(episodes);
   const [currentPage, setCurrentPage] = useState(1);
   const getData = async (pageNo = 1) => {
@@ -21,8 +23,8 @@ const Episodes:React.FunctionComponent<IEpisodesProps> = ({ episodes }: IEpisode
 
   return (
     <>
-      {data?.length > 0
-        && data.map((item) => (
+      {data?.length > 0 &&
+        data.map((item) => (
           <Card
             key={item.id}
             dataObj={{
@@ -37,9 +39,9 @@ const Episodes:React.FunctionComponent<IEpisodesProps> = ({ episodes }: IEpisode
         currentPage={currentPage}
         limit={20}
         onChange={(pageNo) => {
-            getData(pageNo);
-            setCurrentPage(pageNo);
-          }}
+          getData(pageNo);
+          setCurrentPage(pageNo);
+        }}
       />
     </>
   );

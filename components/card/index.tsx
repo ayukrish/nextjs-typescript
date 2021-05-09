@@ -25,14 +25,16 @@ interface IEpisodeDataObj {
   'AIR DATE'?: string;
 }
 
-const Card:React.FunctionComponent<ICardProps> = ({ imgSrc, heading, dataObj }:ICardProps) => (
+const Card: React.FunctionComponent<ICardProps> = ({
+  imgSrc,
+  heading,
+  dataObj,
+}: ICardProps) => (
   <article className={`${style.card} flex column`}>
     <div className={style.cardHeader}>
       {imgSrc && <img src={imgSrc} alt={heading} />}
       <div
-        className={`${style.cardTitle} ${
-            !imgSrc ? style.cardBlankTitle : ''
-          }`}
+        className={`${style.cardTitle} ${!imgSrc ? style.cardBlankTitle : ''}`}
       >
         <h2>{heading}</h2>
       </div>
@@ -43,9 +45,9 @@ const Card:React.FunctionComponent<ICardProps> = ({ imgSrc, heading, dataObj }:I
           <span>{key}</span>
           <span>{value}</span>
         </div>
-        ))}
+      ))}
     </div>
   </article>
-  );
+);
 
 export default Card;

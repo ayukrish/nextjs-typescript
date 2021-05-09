@@ -3,12 +3,12 @@ import Characters from './characters';
 import { service } from '../service';
 
 interface ICharactersProps {
-  characters: any
+  characters: any;
 }
 
-const HomePage:React.FunctionComponent<ICharactersProps> = ({ characters }:ICharactersProps) => (
-  <Characters characters={characters} />
-);
+const HomePage: React.FunctionComponent<ICharactersProps> = ({
+  characters,
+}: ICharactersProps) => <Characters characters={characters} />;
 
 export const getServerSideProps = async () => {
   const data = await service({

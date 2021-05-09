@@ -8,7 +8,7 @@ interface IPaginationProps {
   onChange: (currentPage: number) => void;
 }
 
-const Pagination:React.FunctionComponent<IPaginationProps> = ({
+const Pagination: React.FunctionComponent<IPaginationProps> = ({
   contentLength,
   currentPage,
   limit,

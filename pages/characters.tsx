@@ -4,10 +4,12 @@ import Card from '../components/card';
 import Pagination from '../components/pagination';
 
 interface ICharactersProps {
-  characters: any
+  characters: any;
 }
 
-const Characters:React.FunctionComponent<ICharactersProps> = ({ characters }:ICharactersProps) => {
+const Characters: React.FunctionComponent<ICharactersProps> = ({
+  characters,
+}: ICharactersProps) => {
   const [data, setData] = useState(characters);
   const [currentPage, setCurrentPage] = useState(1);
   const getData = async (pageNo = 1) => {
@@ -21,8 +23,8 @@ const Characters:React.FunctionComponent<ICharactersProps> = ({ characters }:ICh
 
   return (
     <>
-      {data?.length > 0
-        && data.map((item) => (
+      {data?.length > 0 &&
+        data.map((item) => (
           <Card
             key={item.id}
             dataObj={{

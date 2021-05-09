@@ -20,11 +20,13 @@ const GetTabItems = () => {
   }, [location]);
 
   return (
-    tabItems
-    && tabItems.map((item) => (
+    tabItems &&
+    tabItems.map((item) => (
       <div
         key={item.id}
-        className={`${styles.tab} ${selectedTab === item.id ? styles.active : ''}`}
+        className={`${styles.tab} ${
+          selectedTab === item.id ? styles.active : ''
+        }`}
       >
         <Link href={item.routePath}>{item.name}</Link>
       </div>
@@ -32,7 +34,7 @@ const GetTabItems = () => {
   );
 };
 
-const Tabs:React.FunctionComponent = () => (
+const Tabs: React.FunctionComponent = () => (
   <section className={styles.tabWrapper}>{GetTabItems()}</section>
 );
 

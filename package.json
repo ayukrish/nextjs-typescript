@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint \"**/*.+(js|ts|tsx)\" --fix",
-    "format": "prettier \"**/*.+(js|jsx|css|scss|md|json)\" --write"
+    "format": "prettier \"**/*.+(js|jsx|tsx|scss|md|json)\" --write"
   },
   "repository": {
     "type": "git",
