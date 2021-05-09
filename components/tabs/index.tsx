@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { tabItems } from './constants';
 import styles from '../../styles/tabs.module.scss';
 
@@ -19,10 +19,9 @@ const GetTabItems = () => {
     setSelectedTab(tabDetails.id);
   }, [location]);
 
-
   return (
-    tabItems &&
-    tabItems.map((item) => (
+    tabItems
+    && tabItems.map((item) => (
       <div
         key={item.id}
         className={`${styles.tab} ${selectedTab === item.id ? styles.active : ''}`}
@@ -33,11 +32,8 @@ const GetTabItems = () => {
   );
 };
 
+const Tabs:React.FunctionComponent = () => (
+  <section className={styles.tabWrapper}>{GetTabItems()}</section>
+);
 
-const Tabs = () => {
-  return (
-    <section className={styles.tabWrapper}>{GetTabItems()}</section>
-  )
-}
-
-export default Tabs
+export default Tabs;

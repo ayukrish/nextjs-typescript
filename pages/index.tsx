@@ -1,15 +1,16 @@
+import React from 'react';
 import Characters from './characters';
-import { service }  from '../service';
+import { service } from '../service';
 
-
-const HomePage = ({ characters }) => {
-  return (
-    <Characters characters={characters} />
-  );
+interface ICharactersProps {
+  characters: any
 }
 
+const HomePage:React.FunctionComponent<ICharactersProps> = ({ characters }:ICharactersProps) => (
+  <Characters characters={characters} />
+);
 
-export const getServerSideProps = async ()  => {
+export const getServerSideProps = async () => {
   const data = await service({
     url: 'https://rickandmortyapi.com/api/character',
     method: 'get',
@@ -20,8 +21,7 @@ export const getServerSideProps = async ()  => {
     props: {
       characters: data?.results || [],
     },
-  }
-}
+  };
+};
 
-
-export default HomePage
+export default HomePage;
