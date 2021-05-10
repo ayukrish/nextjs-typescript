@@ -5,19 +5,13 @@ export const service = (reqObj) => {
     url = `${url}?page=${page}`;
   }
   return fetch(url, {
-    method
+    method,
   })
     .then((response) => {
       if (response.ok) {
-        return response.text().then((res) => {
-          return JSON.parse(res);
-        });
+        return response.text().then((res) => JSON.parse(res));
       }
-      return response.text().then((res) => {
-        return Promise.reject(res);
-      });
+      return response.text().then((res) => Promise.reject(res));
     })
-    .catch((error) => {
-      return Promise.reject(error);
-    });
+    .catch((error) => Promise.reject(error));
 };

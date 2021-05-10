@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import '../styles/global.scss'
+import Head from 'next/head';
+import '../styles/global.scss';
 import Tabs from '../components/tabs';
 
 export default function MyApp({ Component, pageProps }) {

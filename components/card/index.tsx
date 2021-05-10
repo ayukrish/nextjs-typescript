@@ -1,5 +1,5 @@
+import React from 'react';
 import style from '../../styles/card.module.scss';
-
 
 interface ICardProps {
   imgSrc?: string;
@@ -25,30 +25,29 @@ interface IEpisodeDataObj {
   'AIR DATE'?: string;
 }
 
-
-const Card = ({ imgSrc, heading, dataObj }:ICardProps) => {
-  return (
-    <article className={`${style.card} flex column`}>
-      <div className={style.cardHeader}>
-        {imgSrc && <img src={imgSrc} alt={heading} />}
-        <div
-          className={`${style.cardTitle} ${
-            !imgSrc ? style.cardBlankTitle : ''
-          }`}
-        >
-          <h2>{heading}</h2>
+const Card: React.FunctionComponent<ICardProps> = ({
+  imgSrc,
+  heading,
+  dataObj,
+}: ICardProps) => (
+  <article className={`${style.card} flex column`}>
+    <div className={style.cardHeader}>
+      {imgSrc && <img src={imgSrc} alt={heading} />}
+      <div
+        className={`${style.cardTitle} ${!imgSrc ? style.cardBlankTitle : ''}`}
+      >
+        <h2>{heading}</h2>
+      </div>
+    </div>
+    <div className={style.cardInfo}>
+      {Object.entries(dataObj).map(([key, value]) => (
+        <div className={`${style.characterText} flex center`} key={key}>
+          <span>{key}</span>
+          <span>{value}</span>
         </div>
-      </div>
-      <div className={style.cardInfo}>
-        {Object.entries(dataObj).map(([key, value]) => (
-          <div className={`${style.characterText} flex center`} key={key}>
-            <span>{key}</span>
-            <span>{value}</span>
-          </div>
-        ))}
-      </div>
-    </article>
-  );
-};
+      ))}
+    </div>
+  </article>
+);
 
-export default Card
+export default Card;

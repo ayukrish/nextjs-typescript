@@ -1,3 +1,4 @@
+import React from 'react';
 import style from '../../styles/pagination.module.scss';
 
 interface IPaginationProps {
@@ -7,7 +8,7 @@ interface IPaginationProps {
   onChange: (currentPage: number) => void;
 }
 
-const Pagination = ({
+const Pagination: React.FunctionComponent<IPaginationProps> = ({
   contentLength,
   currentPage,
   limit,

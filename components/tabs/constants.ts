@@ -2,16 +2,16 @@ export const tabItems = [
   {
     name: 'Characters',
     id: 'characters',
-    routePath: '/'
+    routePath: '/',
   },
   {
     name: 'Locations',
     id: 'locations',
-    routePath: '/locations'
+    routePath: '/locations',
   },
   {
     name: 'Episodes',
     id: 'episodes',
-    routePath: '/episodes'
-  }
+    routePath: '/episodes',
+  },
 ];
