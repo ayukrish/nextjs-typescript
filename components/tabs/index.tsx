@@ -19,19 +19,16 @@ const GetTabItems = () => {
     setSelectedTab(tabDetails.id);
   }, [location]);
 
-  return (
-    tabItems &&
-    tabItems.map((item) => (
-      <div
-        key={item.id}
-        className={`${styles.tab} ${
-          selectedTab === item.id ? styles.active : ''
-        }`}
-      >
-        <Link href={item.routePath}>{item.name}</Link>
-      </div>
-    ))
-  );
+  return tabItems.map((item) => (
+    <div
+      key={item.id}
+      className={`${styles.tab} ${
+        selectedTab === item.id ? styles.active : ''
+      }`}
+    >
+      <Link href={item.routePath}>{item.name}</Link>
+    </div>
+  ));
 };
 
 const Tabs: React.FunctionComponent = () => (
