@@ -51,7 +51,7 @@ const Characters: React.FunctionComponent<ICharactersProps> = ({
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const data = await service({
     url: 'https://rickandmortyapi.com/api/character',
     method: 'get',

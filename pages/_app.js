@@ -6,7 +6,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <main className="main">
       <Head>
-        <title>React-hooks-typescript</title>
+        <title>NextJs-typescript</title>
         <link rel="shortcut icon" href="favicon.ico" />
       </Head>
       <Tabs />
