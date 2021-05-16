@@ -5,6 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <title>NextJs-typescript</title>
           <meta charSet="utf-8" />
           <meta
             name="viewport"
